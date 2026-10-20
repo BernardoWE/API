@@ -1,0 +1,18 @@
+import dotenv from "dotenv";
+import app from "./app";
+
+dotenv.config();
+// console.log(process.env.PORT)
+const PORT = Number(process.env.PORT);
+
+const startServer = async () => {
+  try {
+    await app
+      .listen({ port: PORT })
+      .then(() => console.log(`Servidor rodando na porta: ${PORT}`));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+startServer();
